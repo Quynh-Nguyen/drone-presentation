@@ -47,13 +47,13 @@ div#header a{
 
 div#header div.sharing{
 	float:right;
-	width: 156px;
+	width: 180px;
 	margin-top: -4px;
 	margin-right: 92px;
 }
 
 div#header div.sharing a.fb{
-	background: url(../img/fbBtn.png) 0 0 no-repeat;
+	background: url(../img/terra-utm.png) 0 0 no-repeat;
 	display: inline-block;
 	height: 28px;
 	width: 78px;
@@ -61,19 +61,19 @@ div#header div.sharing a.fb{
 }
 
 div#header div.sharing a.fb:hover{
-	background: url(../img/fbBtn.png) 0 -28px no-repeat;
+	background: url(../img/terra-utm.png) 0 -28px no-repeat;
 }
 
 div#header div.sharing a.tw{
-	background: url(../img/twBtn.png) 0 0 no-repeat;
+	background: url(../img/terra-mapper.png) 0 0 no-repeat;
 	display: inline-block;
 	height: 28px;
-	width: 68px;
+	width: 94px;
 	margin: 0;
 }
 
 div#header div.sharing a.tw:hover{
-	background: url(../img/twBtn.png) 0 -28px no-repeat;
+	background: url(../img/terra-mapper.png) 0 -28px no-repeat;
 }
 
 .reveal h1{text-shadow:none; text-transform: none;}
@@ -113,7 +113,7 @@ section.landing h2{
 	text-align: left;
 	color: #FFF;
 	margin: 22px 0 0 0;
-	width: 370px;
+	width: 500px;
 	line-height: 35px;
 }
 
@@ -277,13 +277,13 @@ div#cursorsThumbnail{
 /*SECTIONS*/
 
 section.landing{
-	background: url(../img/landingBkg.jpg) no-repeat center center; 
+	background: url(../img/landingBkg5.jpg) no-repeat center center; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/landingBkg.jpg', sizingMethod='scale');
-	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/landingBkg.jpg', sizingMethod='scale')";
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/landingBkg5.jpg', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/landingBkg5.jpg', sizingMethod='scale')";
 	pointer-events:all;
 }
 
@@ -291,7 +291,7 @@ section.landing{
 /*BROWSER NOT SUPPORTED*/
 
 body.badbrowser{
-	background: url(../img/browserNotSupported.jpg) repeat-x top center;
+	background: url(../img/landingBkg5.jpg) repeat-x top center;
 }
 
 div#mainText{
@@ -342,4 +342,8 @@ div.leaflet-layer img{
 
 .reveal .progress span {
 	background-color:#ff0000;
+}
+
+.cartodb-logo {
+    display: none !important;
 }

@@ -31,29 +31,72 @@ var map = L.map('map', {zoomControl:false}).setView([51.998410382390325, -1.3842
 createCartodbLayers();
 
 // Add needed slides with their contents
-$.ajax({
-  url: "http://saleiva.cartodb.com/api/v2/sql?q=select%20cdb_id,%20tour_length,%20shortname,%20year,%20description%20from%20rolling_stones_tours%20order%20by%20first_concert_date%20asc"
-})
-.done(function (data) {
-    try{
-       data = JSON.parse(data);
-    }catch(err){}
+// $.ajax({
+//   url: "http://saleiva.cartodb.com/api/v2/sql?q=select%20cdb_id,%20tour_length,%20shortname,%20year,%20description%20from%20rolling_stones_tours%20order%20by%20first_concert_date%20asc"
+// })
+// .done(function (data) {
+    var data = {
+"rows":[
+{
+"cdb_id":15,
+"tour_length":2812.86966320812,
+"shortname":"We using",
+"year": "Techniques",
+"description":"- Map: Mapbox, Cesium, Leaflet, Google Map,...</br>- AWS: Lambda, S3, EC2, CloudWatch, Cognito, AWS IoT,...</br>- Livestreaming, SocketIO, ThreeJS, Detect Collision in 2D, 3D Model, 3D Map,..."
+},
+{
+"cdb_id":15,
+"tour_length":2812.86966320812,
+"shortname":"We researching",
+"year": "Techniques",
+"description":"- Map: 3D Mapbox, 3D Cesium Map...</br>- AWS: Microservices Architecture, AWS IoT, DynamoDB...</br>- WebRTC, ReactJS, Detect Collision in 3D, 3D Model, 3D Map,..."
+},
+{
+"cdb_id":21,
+"tour_length":2812.86966320812,
+"shortname":"We tried",
+"year": "What's",
+"description":"- Technical: Research, Seminar, Self Training,...</br>- Working hard.</br>- New challenge.</br>- Workflow change."
+},
+{
+"cdb_id":21,
+"tour_length":2812.86966320812,
+"shortname":"We got and succeed",
+"year": "What's",
+"description":"- Demonstrations</br>- Commendation from Japan side, Customers.</br>- Our Drone Project in the Japan papers, Korea papers."
+},
+{
+"cdb_id":15,
+"tour_length":2812.86966320812,
+"shortname":"We deliver benefit to our customer",
+"year": "How",
+"description":"- Technical: Apply ReactJS, Swift, Microservices Architecture</br>- Improve User Interface and User Experience.</br>- Improve Quality of products."
+},
+{
+"cdb_id":21,
+"tour_length":2812.86966320812,
+"shortname":"Our goals and our dreams",
+"year": "What's",
+"description":"- Be a famous Drone Application.</br>- VR Fly.</br>- Apply Artificial Intelligence, Machine Learning."
+}
+]
+};
     for(var i in data.rows){
         var nextSlide = parseInt(i)+1;
-        var tourL = parseInt(data.rows[i].tour_length).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        // var tourL = parseInt(data.rows[i].tour_length).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         $('.slides').append('<section class="tour">'+
                 '<div class="content">'+
                     '<h2 class="year">'+data.rows[i].year+'</h2>'+
                     '<h2 class="title" tour-id="'+parseInt(data.rows[i].cdb_id,10)+'">'+data.rows[i].shortname+'</h2>'+
                     '<h2 class="description">'+data.rows[i].description+'</h2>'+
-                    '<p class="km">'+tourL+'km.</p>'+
+                    // '<p class="km">'+tourL+'km.</p>'+
                 '</div>'+
                 '<div class="nextButton"><a href="#" actual-slide="'+nextSlide+'"> </a></div>'+
             '</section>'
         );
         tour_indexes.push(parseInt(data.rows[i].cdb_id,10));
     }
-});
+// });
 
 // Binds event to the next buttons on each slide
 $('.nextButton a').live('click', function(e){
@@ -63,14 +106,7 @@ $('.nextButton a').live('click', function(e){
     return false;
 });
 
-//Creates the timeline
-$.ajax({
-  url: "http://saleiva.cartodb.com/api/v2/sql?q=SELECT%20MIN(cdb_id)%20as%20tour_id,year%20FROM%20rolling_stones_tours%20GROUP%20BY%20year%20ORDER%20BY%20year%20ASC",
-})
-.done(function (data){
-	try{
-	   data = JSON.parse(data);
-	}catch(err){}
+
 	$('#timeline ul').append('<li><span id="firstYear">'+data.rows[0].year+'</span></li>');
 	for(var i in data.rows){
 		$('#timeline ul').append('<li>'+
@@ -79,7 +115,6 @@ $.ajax({
 		);
 	};
 	$('#timeline ul').append('<li><span id="lastYear">'+data.rows[data.rows.length-1].year+'</span></li>');
-});
 
 $('#timeline ul li a').live('click', function(e){
     var goto = parseInt($(e.target).attr('go-to-data'));
