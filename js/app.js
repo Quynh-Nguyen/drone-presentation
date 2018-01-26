@@ -61,23 +61,9 @@ createCartodbLayers();
 {
 "cdb_id":21,
 "tour_length":2812.86966320812,
-"shortname":"We got and succeed",
-"year": "What's",
+"shortname":"We received",
+"year": "Achievements",
 "description":"- Demonstrations</br>- Commendation from Japan side, Customers.</br>- Our Drone Project in the Japan papers, Korea papers."
-},
-{
-"cdb_id":15,
-"tour_length":2812.86966320812,
-"shortname":"We deliver benefit to our customer",
-"year": "How",
-"description":"- Technical: Apply ReactJS, Swift, Microservices Architecture</br>- Improve User Interface and User Experience.</br>- Improve Quality of products."
-},
-{
-"cdb_id":21,
-"tour_length":2812.86966320812,
-"shortname":"Our goals and our dreams",
-"year": "What's",
-"description":"- Be a famous Drone Application.</br>- VR Fly.</br>- Apply Artificial Intelligence, Machine Learning."
 }
 ]
 };
